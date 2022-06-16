@@ -1,6 +1,6 @@
 #include <iostream>
 #include <stack>
-
+#include <conio.h>
 #define VISITED 2
 #define BACKTRACE 3
 using namespace std;
@@ -84,7 +84,6 @@ int main()
 		}
 		else
 		{
-			MAP[PlayerPosition.Y][PlayerPosition.X] = BACKTRACE;
 			//돌아갈 길이 없다면 탈출 불가
 			if (History.empty())
 			{
@@ -96,7 +95,18 @@ int main()
 			PlayerPosition.Y = History.top().Y;
 			History.pop();
 		}
-		cout << PlayerPosition.X << "," << PlayerPosition.Y << endl;
+		//cout << PlayerPosition.X << "," << PlayerPosition.Y << endl;
+
+		for (int Y = 0; Y < 10; ++Y)
+		{
+			for (int X = 0; X < 10; ++X)
+			{
+				cout << MAP[Y][X] << " ";
+			}
+			cout << endl;
+		}
+
+		_getch();
 	}
 	return 0;
 }
